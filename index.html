@@ -7,375 +7,78 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #050505;
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            line-height: 1.6;
-        }
-
-        /* Fundo de circuito */
-        .circuit-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(#00E5FF08 2px, transparent 2px),
-                linear-gradient(90deg, #00E5FF08 2px, transparent 2px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #00E5FF30;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .logo-gs {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            font-weight: 900;
-            color: #00E5FF;
-            text-shadow: 0 0 10px #00E5FF;
-        }
-
-        .logo-text {
-            font-size: 0.9rem;
-            color: #39FF14;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, #00E5FF20, #39FF1420);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #39FF14;
-            border: 1px solid #00E5FF;
-        }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: #00E5FF20;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #00E5FF;
-            margin-bottom: 30px;
-            border: 1px solid #00E5FF;
-        }
-
-        h1 {
-            font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        @media (min-width: 768px) {
-            h1 { font-size: 3.5rem; }
-        }
-
-        .highlight {
-            color: #39FF14;
-            text-shadow: 0 0 10px #39FF14;
-        }
-
-        .neon {
-            color: #00E5FF;
-            text-shadow: 0 0 5px #00E5FF;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        /* Botões */
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #00E5FF, #39FF14);
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #000;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Orbitron', monospace;
-            box-shadow: 0 0 20px #00E5FF50;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-whatsapp:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px #39FF14;
-        }
-
-        /* Serviços */
-        .section-title {
-            text-align: center;
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            color: #00E5FF;
-            margin: 60px 0 40px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .service-card {
-            background: rgba(17, 17, 17, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 15px;
-            border: 1px solid #00E5FF;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px #00E5FF;
-            border-color: #39FF14;
-        }
-
-        .service-card i {
-            font-size: 3rem;
-            color: #39FF14;
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
-            color: #00E5FF;
-            margin-bottom: 10px;
-        }
-
-        /* Diferenciais */
-        .differentials {
-            background: linear-gradient(135deg, #00E5FF10, #39FF1410);
-            border-radius: 30px;
-            padding: 50px;
-            margin: 50px 0;
-            border: 1px solid #00E5FF;
-        }
-
-        .diff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .diff-item {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .diff-item i {
-            font-size: 2.5rem;
-            color: #00E5FF;
-            margin-bottom: 15px;
-        }
-
-        .diff-item h3 {
-            color: #39FF14;
-            font-size: 1.1rem;
-        }
-
-        .diff-text {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #ccc;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* CTA */
-        .cta-section {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .cta-section h2 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.8rem;
-            color: #00E5FF;
-            margin-bottom: 20px;
-        }
-
-        /* Footer */
-        .footer {
-            border-top: 1px solid #00E5FF30;
-            padding: 40px 0 20px;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-info p {
-            margin: 10px 0;
-        }
-
-        .footer-info i {
-            color: #39FF14;
-            margin-right: 10px;
-            width: 25px;
-        }
-
-        .footer-message {
-            text-align: right;
-            font-style: italic;
-            color: #00E5FF;
-            border-left: 2px solid #39FF14;
-            padding-left: 20px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #00E5FF20;
-            font-size: 0.8rem;
-            color: #888;
-        }
-
-        @media (max-width: 768px) {
-            .header { flex-direction: column; text-align: center; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            .footer-message { text-align: center; border-left: none; border-top: 1px solid #39FF14; padding-top: 20px; }
-            .differentials { padding: 30px 20px; }
-            h1 { font-size: 1.8rem; }
-            .section-title { font-size: 1.5rem; }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #050505; color: #fff; font-family: 'Rajdhani', sans-serif; line-height: 1.6; }
+        .circuit-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(#00E5FF08 2px, transparent 2px), linear-gradient(90deg, #00E5FF08 2px, transparent 2px); background-size: 50px 50px; pointer-events: none; z-index: 0; }
+        .container { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #00E5FF30; flex-wrap: wrap; gap: 15px; }
+        .logo-gs { font-family: 'Orbitron', monospace; font-size: 2rem; font-weight: 900; color: #00E5FF; text-shadow: 0 0 10px #00E5FF; }
+        .logo-text { font-size: 0.9rem; color: #39FF14; }
+        .badge { background: linear-gradient(135deg, #00E5FF20, #39FF1420); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; color: #39FF14; border: 1px solid #00E5FF; }
+        .hero { text-align: center; padding: 80px 20px; }
+        .hero-badge { display: inline-block; background: #00E5FF20; padding: 8px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: bold; color: #00E5FF; margin-bottom: 30px; border: 1px solid #00E5FF; }
+        h1 { font-family: 'Orbitron', monospace; font-size: 2.5rem; margin-bottom: 20px; }
+        @media (min-width: 768px) { h1 { font-size: 3.5rem; } }
+        .highlight { color: #39FF14; text-shadow: 0 0 10px #39FF14; }
+        .neon { color: #00E5FF; text-shadow: 0 0 5px #00E5FF; }
+        .btn-whatsapp { background: linear-gradient(135deg, #00E5FF, #39FF14); border: none; padding: 15px 40px; font-size: 1.1rem; font-weight: bold; color: #000; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-family: 'Orbitron', monospace; box-shadow: 0 0 20px #00E5FF50; text-decoration: none; display: inline-block; }
+        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 0 0 30px #39FF14; }
+        .section-title { text-align: center; font-family: 'Orbitron', monospace; font-size: 2rem; color: #00E5FF; margin: 60px 0 40px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .service-card { background: rgba(17, 17, 17, 0.8); backdrop-filter: blur(10px); padding: 30px 20px; text-align: center; border-radius: 15px; border: 1px solid #00E5FF; transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 0 30px #00E5FF; border-color: #39FF14; }
+        .service-card i { font-size: 3rem; color: #39FF14; margin-bottom: 15px; }
+        .differentials { background: linear-gradient(135deg, #00E5FF10, #39FF1410); border-radius: 30px; padding: 50px; margin: 50px 0; border: 1px solid #00E5FF; }
+        .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .diff-item { text-align: center; padding: 20px; }
+        .diff-item i { font-size: 2.5rem; color: #00E5FF; margin-bottom: 15px; }
+        .diff-item h3 { color: #39FF14; font-size: 1.1rem; }
+        .diff-text { text-align: center; font-size: 1.1rem; color: #ccc; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+        .cta-section { text-align: center; padding: 60px 20px; }
+        .footer { border-top: 1px solid #00E5FF30; padding: 40px 0 20px; margin-top: 50px; }
+        .footer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .footer-info p { margin: 10px 0; }
+        .footer-info i { color: #39FF14; margin-right: 10px; }
+        .footer-message { text-align: right; font-style: italic; color: #00E5FF; border-left: 2px solid #39FF14; padding-left: 20px; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #00E5FF20; font-size: 0.8rem; color: #888; }
+        @media (max-width: 768px) { .footer-content { grid-template-columns: 1fr; text-align: center; } .footer-message { text-align: center; border-left: none; border-top: 1px solid #39FF14; padding-top: 20px; } }
     </style>
 </head>
 <body>
     <div class="circuit-bg"></div>
     <div class="container">
         <header class="header">
-            <div class="logo">
-                <span class="logo-gs">GS</span>
-                <span class="logo-text">SOLUÇÕES INTELIGENTES</span>
-            </div>
+            <div class="logo"><span class="logo-gs">GS</span><span class="logo-text">SOLUÇÕES INTELIGENTES</span></div>
             <div class="badge">ALTA PERFORMANCE</div>
         </header>
-
         <section class="hero">
             <div class="hero-badge">⚡ PRECISÃO QUE SUSTENTA OPERAÇÕES CRÍTICAS</div>
-            <h1>
-                Especialistas em<br>
-                <span class="highlight">Manutenção Eletrônica Crítica</span><br>
-                de Alta Performance
-            </h1>
+            <h1>Especialistas em<br><span class="highlight">Manutenção Eletrônica Crítica</span><br>de Alta Performance</h1>
             <p class="hero-subtitle">Atuamos onde a falha <span class="neon">NÃO É UMA OPÇÃO</span></p>
-            <a href="https://wa.me/5561994334607?text=Preciso%20de%20um%20diagn%C3%B3stico%20t%C3%A9cnico%20urgente!" target="_blank" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> FALAR COM ESPECIALISTA
-            </a>
+            <a href="https://wa.me/5561994334607?text=Preciso%20de%20um%20diagn%C3%B3stico%20t%C3%A9cnico%20urgente!" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> FALAR COM ESPECIALISTA</a>
         </section>
-
         <section>
             <h2 class="section-title">ESPECIALIDADES TÉCNICAS</h2>
             <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-tractor"></i>
-                    <h3>Módulos eletrônicos</h3>
-                    <p>Máquinas agrícolas de alta precisão</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-industry"></i>
-                    <h3>Placas eletrônicas</h3>
-                    <p>Industriais e sistemas embarcados</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-broadcast-tower"></i>
-                    <h3>Sistemas de comunicação</h3>
-                    <p>Via rádio e TETRA</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Placas eletrônicas</h3>
-                    <p>Em geral - reparo nível componente</p>
-                </div>
+                <div class="service-card"><i class="fas fa-tractor"></i><h3>Módulos eletrônicos</h3><p>Máquinas agrícolas de alta precisão</p></div>
+                <div class="service-card"><i class="fas fa-industry"></i><h3>Placas eletrônicas</h3><p>Industriais e sistemas embarcados</p></div>
+                <div class="service-card"><i class="fas fa-broadcast-tower"></i><h3>Sistemas de comunicação</h3><p>Via rádio e TETRA</p></div>
+                <div class="service-card"><i class="fas fa-microchip"></i><h3>Placas eletrônicas</h3><p>Em geral - reparo nível componente</p></div>
             </div>
         </section>
-
         <section class="differentials">
             <div class="diff-grid">
-                <div class="diff-item">
-                    <i class="fas fa-search"></i>
-                    <h3>Diagnóstico preciso</h3>
-                </div>
-                <div class="diff-item">
-                    <i class="fas fa-wrench"></i>
-                    <h3>Reparo confiável</h3>
-                </div>
-                <div class="diff-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Continuidade operacional garantida</h3>
-                </div>
+                <div class="diff-item"><i class="fas fa-search"></i><h3>Diagnóstico preciso</h3></div>
+                <div class="diff-item"><i class="fas fa-wrench"></i><h3>Reparo confiável</h3></div>
+                <div class="diff-item"><i class="fas fa-chart-line"></i><h3>Continuidade operacional garantida</h3></div>
             </div>
-            <p class="diff-text">
-                Porque produtividade não depende só de máquinas – depende de quem resolve rápido, 
-                com precisão e confiança.
-            </p>
+            <p class="diff-text">Porque produtividade não depende só de máquinas – depende de quem resolve rápido, com precisão e confiança.</p>
         </section>
-
         <section class="cta-section">
             <h2>Técnicos que mantêm sua operação em movimento</h2>
             <p>Fale com técnicos especialistas em eletrônica aplicada ao agro e à indústria</p>
-            <a href="https://wa.me/5561994334607?text=Preciso%20de%20suporte%20t%C3%A9cnico!" target="_blank" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> AGENDAR DIAGNÓSTICO
-            </a>
+            <a href="https://wa.me/5561994334607?text=Preciso%20de%20suporte%20t%C3%A9cnico!" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> AGENDAR DIAGNÓSTICO</a>
         </section>
-
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-info">
@@ -384,13 +87,9 @@
                     <p><i class="fab fa-whatsapp"></i> (61) 99433-4607</p>
                     <p><i class="fas fa-envelope"></i> gssolucoesinteligentes.df@gmail.com</p>
                 </div>
-                <div class="footer-message">
-                    <p>Técnicos que mantêm sua operação em movimento</p>
-                </div>
+                <div class="footer-message"><p>Técnicos que mantêm sua operação em movimento</p></div>
             </div>
-            <div class="copyright">
-                <p>© 2026 GS Soluções Inteligentes - Precisão que sustenta operações críticas</p>
-            </div>
+            <div class="copyright"><p>© 2026 GS Soluções Inteligentes - Precisão que sustenta operações críticas</p></div>
         </footer>
     </div>
 </body>
